@@ -1,0 +1,331 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    color-scheme: dark;
+    --fundo: #111c2e;
+    --painel: #303034;
+    --borda: #aab4c7;
+    --texto: #f4f5f8;
+    --azul: #0877ff;
+}
+
+body {
+    margin: 0;
+    background: var(--fundo);
+    font-family: Arial, Helvetica, sans-serif;
+    color: var(--texto);
+    min-height: 100vh;
+    padding: 26px 18px;
+}
+
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 18px;
+}
+
+.marca {
+    font-size: 21px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.marca span {
+    color: #54a3ff;
+}
+
+.subtitulo {
+    font-size: 14px;
+    color: #c5cfdf;
+}
+
+.painel {
+    background: var(--painel);
+    border: 3px solid #e4e8f1;
+    padding: 20px 16px 18px;
+    box-shadow: 0 10px 30px #0003;
+}
+
+h1 {
+    text-align: center;
+    font-size: clamp(22px, 3vw, 30px);
+    letter-spacing: 1px;
+    margin: 0 0 18px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr;
+    gap: 18px 22px;
+}
+
+.campo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 0;
+}
+
+.campo input,
+.campo select,
+.busca input {
+    min-width: 0;
+    width: 100%;
+    height: 36px;
+    background: #111d30;
+    border: 1px solid #77869d;
+    color: #fff;
+    padding: 7px 9px;
+    border-radius: 2px;
+    font: inherit;
+    font-weight: 400;
+}
+
+.campo input:focus,
+.campo select:focus,
+.busca input:focus {
+    outline: 2px solid #54a3ff;
+    outline-offset: 1px;
+}
+
+.nome {
+    grid-column: span 2;
+}
+
+.nascimento {
+    grid-column: span 1;
+}
+
+.cpf,
+.salario,
+.cargo,
+.status {
+    grid-column: span 1;
+}
+
+.acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 27px 0 24px;
+}
+
+.btn {
+    border: 1px solid #68778c;
+    padding: 10px 18px;
+    font-size: clamp(15px, 1.8vw, 22px);
+    font-weight: 700;
+    color: white;
+    cursor: pointer;
+    min-height: 46px;
+}
+
+.btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.cadastrar {
+    background: #42ed2b;
+}
+
+.limpar {
+    background: #303034;
+}
+
+.editar {
+    background: #0877ff;
+}
+
+.excluir {
+    background: #f10e18;
+}
+
+.folha {
+    background: #004078;
+}
+
+.busca {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 0 0 24px;
+    max-width: 600px;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.busca input {
+    flex: 1;
+}
+
+.tabela-wrap {
+    overflow: auto;
+    max-height: 420px;
+    border: 1px solid #6f7784;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 850px;
+    font-size: 13px;
+}
+
+th,
+td {
+    border: 1px solid #4c586a;
+    padding: 9px 8px;
+    text-align: left;
+}
+
+th {
+    background: #34363b;
+    font-weight: 500;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+td {
+    background: #111d30;
+}
+
+tbody tr {
+    cursor: pointer;
+}
+
+tbody tr:hover td {
+    background: #203b5d;
+}
+
+tbody tr.selecionado td {
+    background: #174c7e;
+}
+
+.vazio {
+    text-align: center;
+    color: #c6cede;
+    padding: 22px;
+    cursor: default;
+}
+
+.mensagem {
+    display: none;
+    padding: 10px 12px;
+    margin: 0 0 16px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    font-size: 14px;
+}
+
+.mensagem.erro {
+    display: block;
+    background: #511d25;
+    border-color: #b83d4a;
+}
+
+.mensagem.sucesso {
+    display: block;
+    background: #173f2a;
+    border-color: #39975d;
+}
+
+.ajuda,
+footer {
+    font-size: 12px;
+    color: #c4ccda;
+}
+
+.ajuda {
+    margin: 12px 0 0;
+}
+
+footer {
+    text-align: center;
+    padding: 18px;
+}
+
+.status-ativo {
+    color: #62ef82;
+    font-weight: bold;
+}
+
+.status-inativo {
+    color: #ff8585;
+    font-weight: bold;
+}
+
+@media (max-width: 850px) {
+    .form-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nome,
+    .nascimento,
+    .cpf,
+    .salario,
+    .cargo,
+    .status {
+        grid-column: span 1;
+    }
+
+    .campo {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 6px;
+    }
+
+    .acoes {
+        gap: 9px;
+    }
+
+    .btn {
+        flex: 1 1 130px;
+    }
+
+    .topo {
+        align-items: flex-start;
+        gap: 8px;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 520px) {
+    body {
+        padding: 12px 8px;
+    }
+
+    .painel {
+        padding: 15px 10px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nome,
+    .nascimento,
+    .cpf,
+    .salario,
+    .cargo,
+    .status {
+        grid-column: span 1;
+    }
+
+    .busca {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 7px;
+    }
+}
